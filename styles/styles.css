@@ -1,14 +1,165 @@
-html {
-    font-size: 16px;
+
+/* Algemene instellingen */
+* {
+    box-sizing: border-box;
 }
 
-body {
-    margin: 0%;
-    padding: 0%;
-    width: ;
-    max-width: ;
-    overflow-x: ;
-    font-family: var(font-family-secondary);
-    container-type: inline-size;
+html {
+    --color-primary: hsl(0, 0%, 100%);
+    --color-secondary: hsl(0, 0%, 0%);
+
+    --color-tertiary-hue: 240;
+    --color-tertiary-saturation: 75%;
+    --color-tertiary-lightness: 15%;
+    --color-tertiary: hsl(
+        var(--color-tertiary-hue),
+        var(--color-tertiary-saturation),
+        var(--color-tertiary-lightness)
+    );
+
+    --color-quaternary: hsl(185, 55%, 60%);
+    --color-quinary: hsl(40, 100%, 55%);
+    --color-senary: hsl(10, 95%, 70%);
+
+    --font-color: hsl(0, 0%, 0%);
+
+    --font-family-primary: "Quantico", sans-serif;
+    --font-family-secondary: "Yrsa", serif;
+
+    font-size: 1.25rem;
 }
+
+@font-face {
+    font-family: "Yrsa";
+    src: url("/fonts/Yrsa-subset.woff2") format("woff2");
+    font-display: swap;
+}
+
+/* Body */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: var(--font-family-secondary);
+    color: var(--font-color);
+    background-color: var(--color-primary);
+}
+
+/* Header */
+header {
+    width: 100%;
+    background-color: var(--color-tertiary);
+}
+
+/* Navigatie */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+}
+
+/* Logo */
+.logo {
+    color: var(--color-primary);
+    font-family: var(--font-family-primary);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Navigatie links */
+#nav-links > ul {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Menu items */
+#nav-links li {
+    position: relative;
+    list-style: none;
+}
+
+#nav-links a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+/* Hover */
+#nav-links a:hover {
+    color: var(--color-quaternary);
+}
+
+/* Submenu */
+#nav-links li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    min-width: 180px;
+    padding: 10px 0;
+    margin: 0;
+
+    background-color: var(--color-tertiary);
+    list-style: none;
+}
+
+/* Submenu zichtbaar bij hover */
+#nav-links li:hover > ul {
+    display: block;
+}
+
+/* Submenu links */
+#nav-links li ul li {
+    padding: 8px 15px;
+}
+
+#nav-links li ul a {
+    display: block;
+    white-space: nowrap;
+}
+
+/* Mobile menu knop */
+.mobile-menu {
+    display: none;
+    border: none;
+    background: none;
+    color: var(--color-primary);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Mobiele versie */
+@media (max-width: 768px) {
+
+    nav {
+        padding: 15px 20px;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    #nav-links {
+        display: none;
+        width: 100%;
+    }
+
+    #nav-links > ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    #nav-links li ul {
+        position: static;
+        background-color: transparent;
+    }
+}
+```
 
